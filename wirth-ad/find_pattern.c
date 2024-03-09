@@ -26,6 +26,7 @@ find_pattern_result find_pattern(char *text, isize text_len, char *pattern,
     return result;
   }
   if (pattern_len == 0) {
+    result.index = 0;
     result.found = 1;
     return result;
   }
@@ -59,7 +60,7 @@ find_pattern_result find_pattern(char *text, isize text_len, char *pattern,
   //   }
   // }
   result.index = text_i;
-  result.found = text_i <= (text_len - pattern_len);
+  result.found = pattern_j >= pattern_len;
   return result;
 }
 
